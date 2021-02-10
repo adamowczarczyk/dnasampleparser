@@ -1,0 +1,1 @@
+This is a simple sample project for DNA sequence parsing and processing.
