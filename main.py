@@ -1,16 +1,15 @@
 import click
-from parser import read_genomes, parse_genomes
-from generator import visualize_genomes, write_results
+from tools.parser import read_genomes, parse_genomes
+from tools.generator import visualize_genomes, write_results
 
 
 @click.command()
-@click.option("input_csv", show_default=True, help="Path to input CSV")
-@click.option("out_vis", show_default=True, help="Path to output pdf")
-@click.option("out_csv", show_default=True, help="Path to output CSV")
-@click.option("searched_domain", show_default=True, help="String to be searched")
-@click.option("reference_id", show_default=True, help="ID of the reference genome")
-def cli(input_csv='genomes.csv', out_vis='plot.pdf'
-        , out_csv='out.csv', searched_domain=None, reference_id=None):
+@click.option("--input_csv", default='genomes.csv', show_default=True, help="Path to input CSV")
+@click.option("--out_vis", default='plot.pdf', show_default=True, help="Path to output pdf")
+@click.option("--out_csv", default='out.csv', show_default=True, help="Path to output CSV")
+@click.option("--searched_domain", default=None, show_default=True, help="String to be searched")
+@click.option("--reference_id", default=None, show_default=True, help="ID of the reference genome")
+def cli(input_csv, out_vis, out_csv, searched_domain, reference_id):
     """ This script takes the following options:
         input_csv - Path to input CSV
         out_vis - Path to output pdf
