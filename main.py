@@ -21,5 +21,5 @@ def cli(input_csv, out_vis, out_csv, searched_domain, reference_id):
     df = read_genomes(filename=input_csv)
     df_parsed = parse_genomes(df=df, reference=reference_id, domain=searched_domain)
     write_results(df_parsed, filename=out_csv)
-    visualize_genomes(df=df_parsed, plot_filenam=out_vis)
+    visualize_genomes(df=df_parsed, plot_filename=out_vis)
 

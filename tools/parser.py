@@ -11,7 +11,7 @@ def read_genomes(filename='data\\genomes.csv'):
     df_out.columns = df_out.columns.get_level_values(1)
     df_out = df_out.reset_index().rename(columns={'list': 'id'})
     df_out['valid'] = df_out['genome'].apply(lambda x: is_valid_sequence(x))
-    df_out_valid = df_out[df_out['valid']]
+    df_out_valid = df_out[df_out['valid']].copy()
     df_out_valid['id'] = df_out_valid['id'].apply(lambda x: sorted(x))
 
     return df_out_valid

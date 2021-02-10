@@ -9,6 +9,7 @@ def write_results(df, filename='data\\genomes_output.csv'):
 
 def visualize_genomes(df, plot_filename):
     histogram_vals = df.explode('mutations')['mutations'].value_counts()
+    histogram_vals = histogram_vals[histogram_vals > 1]
     _ = plt.figure()
     x_vals = histogram_vals.index.values.tolist()
     y_vals = np.round(histogram_vals.values.tolist()/histogram_vals.values.sum(), 2)
